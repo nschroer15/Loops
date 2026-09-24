@@ -60,8 +60,14 @@ console.log(countdown(8)); // [8, 7, 6, 5, 4, 3, 2, 1]
 function countVowels(str) {
   // TODO: your code here
   let vowels = [];
-  for (let i = 1; i <= str.length; i++) {
-    if (str.charAt(i) === "a" || "e" || "i" || "u" || "o") {
+  for (let i = 0; i < str.length; i++) {
+    if (
+      str[i] === "a" ||
+      str[i] === "e" ||
+      str[i] === "i" ||
+      str[i] === "u" ||
+      str[i] === "o"
+    ) {
       vowels.push(str.charAt(i));
     }
   }
@@ -80,8 +86,18 @@ console.log(countVowels("aeiou")); // 5
 // build each row as its own string before adding it to the result.
 function multiplicationTable(n) {
   // TODO: your code here
+  let table = "";
+  for (let i = 1; i <= n; i++) {
+    let row = "";
+    for (let j = 1; j <= n; j++) {
+      if (j > 1) row += " ";
+      row += i * j;
+    }
+    if (i > 1) table += "\n";
+    table += row;
+  }
+  return table;
 }
-
 console.log(multiplicationTable(3));
 // "1 2 3\n2 4 6\n3 6 9"
 console.log(multiplicationTable(5));
@@ -95,6 +111,9 @@ console.log(multiplicationTable(5));
 // when a divisor is found works well here.
 function primesUnder(limit) {
   // TODO: your code here
+  let prime = [];
+  for (let j = 1; j < limit; j++) if (limit % j != 0) prime.push(j);
+  return prime;
 }
 
 console.log(primesUnder(10)); // [2, 3, 5, 7]
